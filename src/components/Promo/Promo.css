@@ -1,0 +1,46 @@
+.promo {
+  background-color: #073042;
+  padding: 75px 70px;
+}
+
+.promo-title {
+  color: #ffffff;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 50px;
+  line-height: 58px;
+  max-width: 640px;
+  margin: 0;
+}
+
+.promo-subtitle {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  max-width: 310px;
+  color: #ffffff;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  margin: 36px 0 136px 0;
+}
+
+.promo-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.promo-link {
+  text-decoration: none;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  padding: 10px 20px;
+}

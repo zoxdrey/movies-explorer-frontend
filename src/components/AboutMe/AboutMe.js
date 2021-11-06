@@ -1,6 +1,6 @@
 import "./AboutMe.css";
 import SectionTitle from "../SectionTitle/SectionTitle";
-import image from "../../images/student_photo.png";
+import image from "../../images/student-photo.png";
 const AboutMe = () => {
   return (
     <section className="about-me">

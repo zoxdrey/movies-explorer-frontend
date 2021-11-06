@@ -1,0 +1,83 @@
+.about-project {
+  padding: 110px 70px;
+  background-color: #202020;
+}
+
+.about-project__title {
+  margin: 0 0 23px 0;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 27px;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+}
+
+.about-project__devider {
+  height: 1px;
+  background-color: #dadada;
+  width: 100%;
+}
+
+.about-project__table {
+  display: flex;
+  margin: 70px 0 110px 0;
+}
+
+.about-project__table-header {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin-bottom: 26px;
+}
+
+.about-project__table-text {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.progress-bar {
+  display: flex;
+  width: 100%;
+}
+
+.progress-bar__item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.progress-bar__section {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  text-align: center;
+  height: 36px;
+  background-color: #303030;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar__subtitle {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8b8b8b;
+  text-align: center;
+  margin-top: 14px;
+}

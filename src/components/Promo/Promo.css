@@ -3,7 +3,7 @@
   padding: 75px 70px;
 }
 
-.promo-title {
+.promo__title {
   color: #ffffff;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-style: normal;
@@ -14,7 +14,7 @@
   margin: 0;
 }
 
-.promo-subtitle {
+.promo__subtitle {
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -27,12 +27,12 @@
   margin: 36px 0 136px 0;
 }
 
-.promo-content {
+.promo__content {
   display: flex;
   justify-content: space-between;
 }
 
-.promo-link {
+.promo__link {
   text-decoration: none;
   font-family: Inter;
   font-style: normal;

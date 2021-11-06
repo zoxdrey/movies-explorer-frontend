@@ -3,14 +3,14 @@ import logo from "../../images/logo.svg";
 const Header = () => {
   return (
     <div className="header">
-      <div className="header_logo">
+      <div className="header__logo">
         <img src={logo} alt="Логотип" />
       </div>
-      <div className="header_nav-bar">
-        <a href="#" className="header_nav-bar-item">
+      <div className="header__nav-bar">
+        <a href="#" className="header__nav-bar-item">
           Регистрация
         </a>
-        <a href="#" className="header_nav-bar-item">
+        <a href="#" className="header__nav-bar-item">
           Войти
         </a>
       </div>

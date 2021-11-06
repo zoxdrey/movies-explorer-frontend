@@ -3,23 +3,6 @@
   background-color: #202020;
 }
 
-.about-project__title {
-  margin: 0 0 23px 0;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 22px;
-  line-height: 27px;
-  font-family: "Inter", Arial, Helvetica, sans-serif;
-  letter-spacing: -0.04em;
-  color: #ffffff;
-}
-
-.about-project__devider {
-  height: 1px;
-  background-color: #dadada;
-  width: 100%;
-}
-
 .about-project__table {
   display: flex;
   margin: 70px 0 110px 0;

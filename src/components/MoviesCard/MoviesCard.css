@@ -1,0 +1,37 @@
+.movies-card {
+  background-color: #2f2f2f;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 6px;
+}
+
+.movies-card__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 17px;
+}
+
+.movies-card__title {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 13px;
+  color: #ffffff;
+}
+
+.movies-card__time {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 13px;
+  display: flex;
+  align-items: center;
+  color: #8b8b8b;
+}

@@ -7,10 +7,10 @@ const Header = () => {
         <img src={logo} alt="Логотип" />
       </div>
       <div className="header__nav-bar">
-        <a href="#" className="header__nav-bar-item">
+        <a href="/signup" className="header__nav-bar-item">
           Регистрация
         </a>
-        <a href="#" className="header__nav-bar-item">
+        <a href="/signin" className="header__nav-bar-item">
           Войти
         </a>
       </div>

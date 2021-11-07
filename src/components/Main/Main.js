@@ -9,15 +9,17 @@ import "./Main.css";
 
 const Main = () => {
   return (
-    <main className="content">
-      <Header />
-      <Promo />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
-      <Portfolio />
-      <Footer />
-    </main>
+    <>
+      <main className="content">
+        <Header />
+        <Promo />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+        <Portfolio />
+        <Footer />
+      </main>
+    </>
   );
 };
 

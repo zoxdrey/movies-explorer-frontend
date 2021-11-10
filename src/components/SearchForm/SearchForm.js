@@ -34,7 +34,10 @@ const SearchForm = () => {
             type="checkbox"
             required
           />
-          <label for="short-film" className="search-form__input-checkbox-label">
+          <label
+            htmlFor="short-film"
+            className="search-form__input-checkbox-label"
+          >
             Короткометражки
           </label>
         </div>

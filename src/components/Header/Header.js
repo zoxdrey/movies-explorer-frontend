@@ -15,15 +15,18 @@ const Header = (props) => {
   return (
     <>
       <div className={`header ${props.showAuthNav ? "" : "header_no-auth"}`}>
-        <div className="header__logo">
+        <Link to={"/"} className="header__logo">
           <img src={logo} alt="Логотип" />
-        </div>
+        </Link>
         {props.showAuthNav ? (
           <nav className="header-auth__nav-bar">
             <a href="/signup" className="header-auth__nav-bar-item">
               Регистрация
             </a>
-            <a href="/signin" className="header-auth__nav-bar-item">
+            <a
+              href="/signin"
+              className="header-auth__nav-bar-item header-auth__nav-bar-item_active"
+            >
               Войти
             </a>
           </nav>

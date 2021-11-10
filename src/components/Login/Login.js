@@ -1,11 +1,12 @@
 import "./Login.css";
 import logo from "../../images/logo.svg";
+import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div className="login">
-      <div className="login__logo">
+      <Link to={"/"} className="login__logo">
         <img src={logo} alt="логотип" />
-      </div>
+      </Link>
 
       <form className="login-form">
         <h2 className="login-form__title">Рады видеть!</h2>
@@ -37,9 +38,9 @@ const Login = () => {
       </form>
       <p className="login__text">
         Ещё не зарегистрированы?
-        <a href="#" className="login__link">
+        <Link to={"/signup"} className="login__link">
           Регистрация
-        </a>
+        </Link>
       </p>
     </div>
   );

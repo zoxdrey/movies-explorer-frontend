@@ -17,7 +17,7 @@ const Promo = () => {
         </div>
       </div>
 
-      <a href="#" className="promo__link">
+      <a href="#about-project" className="promo__link">
         Узнать больше
       </a>
     </div>

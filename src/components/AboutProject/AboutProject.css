@@ -39,6 +39,12 @@
   flex-grow: 1;
 }
 
+.progress-bar__item_active {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.2;
+}
+
 .progress-bar__section {
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-style: normal;
@@ -53,7 +59,10 @@
   display: flex;
   align-items: center;
 }
-
+.progress-bar__section_active {
+  background-color: #3ddc84;
+  color: #000000;
+}
 .progress-bar__subtitle {
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-style: normal;

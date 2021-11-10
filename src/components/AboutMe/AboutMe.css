@@ -75,11 +75,14 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 600px) {
   .about-me__content {
     flex-direction: column-reverse;
     align-items: center;
   }
+}
+
+@media screen and (max-width: 320px) {
   .about-me {
     padding: 100px 14px;
   }

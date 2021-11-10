@@ -3,7 +3,7 @@ import "./AboutProject.css";
 
 const AboutProject = () => {
   return (
-    <section className="about-project">
+    <section className="about-project" id="about-project">
       <SectionTitle title="О проекте" />
       <div className="about-project__table">
         <div className="about-project__table-column">
@@ -27,8 +27,10 @@ const AboutProject = () => {
       </div>
 
       <div className="progress-bar">
-        <div className="progress-bar__item">
-          <div className="progress-bar__section">1 неделя</div>
+        <div className="progress-bar__item progress-bar__item_active">
+          <div className="progress-bar__section progress-bar__section_active">
+            1 неделя
+          </div>
           <div className="progress-bar__subtitle">Back-end</div>
         </div>
         <div className="progress-bar__item">

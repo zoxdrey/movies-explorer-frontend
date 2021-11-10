@@ -83,8 +83,13 @@
   justify-content: space-between;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 420px) {
   .menu__cover {
     display: none;
+    position: absolute;
+  }
+
+  .menu__nav {
+    width: 100%;
   }
 }

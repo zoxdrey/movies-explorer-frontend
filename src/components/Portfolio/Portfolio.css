@@ -41,3 +41,27 @@
   width: 100%;
   margin: 20px 0 20px 0;
 }
+
+.portfolio__list-item-icon {
+  margin: auto 0;
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio {
+    padding: 0 30px;
+  }
+  .portfolio__list-item-text {
+    font-size: 28px;
+    line-height: 50px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .portfolio {
+    padding: 0 14px;
+  }
+  .portfolio__list-item-text {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}

@@ -7,10 +7,11 @@
 }
 
 .register-form {
-  width: 400px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 }
 
 .register__logo {
@@ -90,4 +91,22 @@
   line-height: 17px;
   text-align: center;
   color: #4285f4;
+}
+
+@media screen and (max-width: 768px) {
+  .register-form {
+    width: 310px;
+  }
+  .register__logo {
+    width: 310px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .register-form {
+    width: 260px;
+  }
+  .register__logo {
+    width: 260px;
+  }
 }

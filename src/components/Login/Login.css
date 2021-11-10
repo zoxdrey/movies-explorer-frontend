@@ -7,17 +7,19 @@
 }
 
 .login-form {
-  width: 400px;
+  max-width: 400px;
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 }
 
 .login__logo {
   margin-top: 70px;
-  width: 400px;
+  max-width: 400px;
   display: flex;
   justify-content: flex-start;
+  width: 100%;
 }
 
 .login-form__title {
@@ -27,6 +29,7 @@
   font-size: 24px;
   line-height: 29px;
   color: #ffffff;
+  width: 100%;
 }
 
 .login-form__label {
@@ -37,6 +40,7 @@
   line-height: 12px;
   color: #8b8b8b;
   margin-bottom: 5px;
+  width: 100%;
 }
 
 .login-form__input {
@@ -51,6 +55,7 @@
   border: none;
   padding-bottom: 10px;
   border-bottom: 1px #424242 solid;
+  width: 100%;
 }
 
 .login-form__button {
@@ -66,6 +71,7 @@
   text-align: center;
   border: none;
   color: #ffffff;
+  width: 100%;
 }
 
 .login__text {
@@ -78,6 +84,7 @@
   text-align: center;
   color: #8b8b8b;
   margin-bottom: 70px;
+  width: 100%;
 }
 
 .login__link {
@@ -90,4 +97,22 @@
   line-height: 17px;
   text-align: center;
   color: #4285f4;
+}
+
+@media screen and (max-width: 768px) {
+  .login-form {
+    width: 310px;
+  }
+  .login__logo {
+    width: 310px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .login-form {
+    width: 260px;
+  }
+  .login__logo {
+    width: 260px;
+  }
 }

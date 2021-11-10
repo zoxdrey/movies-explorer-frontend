@@ -64,3 +64,32 @@
   text-align: center;
   margin-top: 14px;
 }
+
+@media screen and (max-width: 768px) {
+  .about-project {
+    padding: 70px 18px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .about-project {
+    padding: 70px 18px;
+  }
+  .header {
+    padding: 0 14px;
+  }
+  .about-project__table-text {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 56px;
+    color: #ffffff;
+  }
+  .about-project__table-text:last-child {
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 0;
+  }
+}

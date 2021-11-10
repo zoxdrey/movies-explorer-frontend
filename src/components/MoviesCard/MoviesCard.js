@@ -9,12 +9,12 @@ const MoviesCard = () => {
           <h2 className="movies-card__title">33 слова о дизайне</h2>
           <div className="movies-card__time">1ч 42м</div>
         </div>
-        <div className="movies-card__tike">
+        <div className="movies-card__like">
           <img src={likeIcon} alt="like-icon" />
         </div>
       </div>
-      <div className="movies-card__image">
-        <img src={image} alt="постер" />
+      <div className="movies-card__image-wrapper">
+        <img className="movies-card__image" src={image} alt="постер" />
       </div>
     </div>
   );

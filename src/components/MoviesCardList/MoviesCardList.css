@@ -28,3 +28,18 @@
 
   color: #ffffff;
 }
+
+@media screen and (max-width: 768px) {
+  .movies-card-list {
+    padding: 70px 30px 10px 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .movies-card-list {
+    padding: 70px 10px 10px 10px;
+  }
+  .movies-card-list__button {
+    width: 240px;
+  }
+}

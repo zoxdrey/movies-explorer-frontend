@@ -39,6 +39,11 @@
 
 .tech__list {
   display: flex;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .tech__list-item {
@@ -59,4 +64,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .tech {
+    padding: 100px 10px;
+  }
+  .tech__list {
+    justify-content: center;
+  }
 }

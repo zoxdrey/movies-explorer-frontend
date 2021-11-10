@@ -12,8 +12,8 @@ const Promo = () => {
             Листайте ниже, чтобы узнать больше про этот проект и его создателя.
           </p>
         </div>
-        <div className="promo__logo">
-          <img src={logo} alt="Промо логотип" />
+        <div className="promo__logo-wrapper">
+          <img className="promo__logo" src={logo} alt="Промо логотип" />
         </div>
       </div>
 

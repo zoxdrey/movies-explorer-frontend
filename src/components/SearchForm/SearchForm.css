@@ -17,7 +17,7 @@
   background: #4285f4;
   border: none;
   border-radius: 48px;
-  font-family: Inter;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
@@ -37,7 +37,7 @@
 
 .search-form__input {
   border: none;
-  font-family: Inter;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -50,7 +50,7 @@
 }
 
 .search-form__input-checkbox-label {
-  font-family: Inter;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 13px;

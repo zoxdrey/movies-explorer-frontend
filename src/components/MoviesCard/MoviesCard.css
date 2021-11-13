@@ -14,7 +14,7 @@
 }
 
 .movies-card__title {
-  font-family: Inter;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -26,7 +26,7 @@
 }
 
 .movies-card__time {
-  font-family: Inter;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 11px;
@@ -36,7 +36,31 @@
   color: #8b8b8b;
 }
 
-.movies-card__image-wrapper {
+.movies-card__like-button {
+  width: 14px;
+  height: 12px;
+  border: 0;
+  background-color: #2f2f2f;
+  background-image: url("../../images/like-icon.svg");
+  background-repeat: no-repeat;
+}
+
+.movies-card__like-button_active {
+  width: 14px;
+  height: 12px;
+  border: 0;
+  background-color: #2f2f2f;
+  background-image: url("../../images/like-icon_active.svg");
+  background-repeat: no-repeat;
+}
+
+.movies-card__delete-button {
+  width: 14px;
+  height: 12px;
+  border: 0;
+  background-color: #2f2f2f;
+  background-image: url("../../images/delete-card-icon.svg");
+  background-repeat: no-repeat;
 }
 
 .movies-card__image {

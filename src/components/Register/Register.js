@@ -12,7 +12,6 @@ const Register = () => {
       <form className="register-form">
         <h2 className="register-form__title">Добро пожаловать!</h2>
         <label for="name" className="register-form__label">
-          {" "}
           Имя
         </label>
         <input
@@ -23,7 +22,6 @@ const Register = () => {
           required
         ></input>
         <label for="email" className="register-form__label">
-          {" "}
           E-mail
         </label>
         <input

@@ -114,5 +114,6 @@
   }
   .login__logo {
     width: 260px;
+    justify-content: center;
   }
 }

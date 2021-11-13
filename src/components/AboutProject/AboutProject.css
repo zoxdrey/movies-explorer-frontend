@@ -74,13 +74,17 @@
   margin-top: 14px;
 }
 
+.about-project__table-column:first-of-type {
+  margin-right: 40px;
+}
+
 @media screen and (max-width: 768px) {
   .about-project {
     padding: 70px 18px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 460px) {
   .about-project {
     padding: 70px 18px;
   }
@@ -96,9 +100,11 @@
     margin-bottom: 56px;
     color: #ffffff;
   }
-  .about-project__table-text:last-child {
-    font-size: 11px;
-    line-height: 16px;
-    margin-bottom: 0;
+  .about-project__table-column:first-of-type {
+    margin-right: 0;
+  }
+
+  .about-project__table {
+    flex-direction: column;
   }
 }

@@ -11,7 +11,6 @@ const Login = () => {
       <form className="login-form">
         <h2 className="login-form__title">Рады видеть!</h2>
         <label for="email" className="login-form__label">
-          {" "}
           E-mail
         </label>
         <input

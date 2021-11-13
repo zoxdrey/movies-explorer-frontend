@@ -12,6 +12,7 @@
 .about-me__text {
   display: flex;
   flex-direction: column;
+  margin-right: 50px;
 }
 
 .about-me__name {
@@ -79,6 +80,9 @@
   .about-me__content {
     flex-direction: column-reverse;
     align-items: center;
+  }
+  .about-me__text {
+    margin-right: 0px;
   }
 }
 

@@ -1,0 +1,110 @@
+.about-project {
+  padding: 110px 70px;
+  background-color: #202020;
+}
+
+.about-project__table {
+  display: flex;
+  margin: 70px 0 110px 0;
+}
+
+.about-project__table-header {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin-bottom: 26px;
+}
+
+.about-project__table-text {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  color: #ffffff;
+}
+
+.progress-bar {
+  display: flex;
+  width: 100%;
+}
+
+.progress-bar__item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.progress-bar__item_active {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0.2;
+}
+
+.progress-bar__section {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  text-align: center;
+  height: 36px;
+  background-color: #303030;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.progress-bar__section_active {
+  background-color: #3ddc84;
+  color: #000000;
+}
+.progress-bar__subtitle {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8b8b8b;
+  text-align: center;
+  margin-top: 14px;
+}
+
+.about-project__table-column:first-of-type {
+  margin-right: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .about-project {
+    padding: 70px 18px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .about-project {
+    padding: 70px 18px;
+  }
+  .header {
+    padding: 0 14px;
+  }
+  .about-project__table-text {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 56px;
+    color: #ffffff;
+  }
+  .about-project__table-column:first-of-type {
+    margin-right: 0;
+  }
+
+  .about-project__table {
+    flex-direction: column;
+  }
+}

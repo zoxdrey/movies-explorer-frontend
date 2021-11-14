@@ -1,15 +1,14 @@
 import MoviesCard from "../MoviesCard/MoviesCard";
 import "./MoviesCardList.css";
 
-const MoviesCardList = () => {
+const MoviesCardList = ({ filmsList }) => {
   return (
     <div className="movies-card-list">
       <div className="movies-card-list__list">
-        <MoviesCard iconType={1} />
-        <MoviesCard iconType={2} />
-        <MoviesCard iconType={3} />
-        <MoviesCard iconType={1} />
-        <MoviesCard iconType={2} />
+        {filmsList &&
+          filmsList.map((film) => (
+            <MoviesCard iconType={1} film={film} key={film.id} />
+          ))}
       </div>
       <button className="movies-card-list__button">Ещё</button>
     </div>

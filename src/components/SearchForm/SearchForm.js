@@ -1,9 +1,25 @@
 import "./SearchForm.css";
 import searchIcon from "../../images/search-icon.svg";
-const SearchForm = () => {
+import { useState } from "react";
+const SearchForm = ({ isButtonDisabled, handleSubmit }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    handleSubmit(searchQuery);
+  }
+
+  function handleSearchQueryChange(e) {
+    setSearchQuery(e.target.value);
+  }
+
   return (
     <div className="search-form-wrapper">
-      <form className="search-form" name="search-from">
+      <form
+        className="search-form"
+        name="search-from"
+        onSubmit={handleFormSubmit}
+      >
         <div className="search-form__search">
           <img
             className="search-form__icon"
@@ -16,11 +32,14 @@ const SearchForm = () => {
             name="search"
             placeholder="Фильм"
             required
+            value={searchQuery}
+            onChange={handleSearchQueryChange}
           />
           <button
             aria-label="Save"
             className="search-form__button"
             type="submit"
+            disabled={isButtonDisabled}
           >
             Найти
           </button>
@@ -32,7 +51,6 @@ const SearchForm = () => {
             id="short-film"
             name="short-film"
             type="checkbox"
-            required
           />
           <label
             htmlFor="short-film"

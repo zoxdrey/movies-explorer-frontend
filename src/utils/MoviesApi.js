@@ -2,7 +2,7 @@ import { BEATFILM_URL } from "./consts";
 
 export function getAllFilms() {
   return fetch(BEATFILM_URL).then((res) => {
-    _checkResponse(res);
+    return _checkResponse(res);
   });
 }
 

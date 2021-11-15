@@ -23,8 +23,17 @@ const Register = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log({ name, email, password });
+    register({ email, name, password }).then(() => {
+      resetForm();
+    });
   }
+
+  const resetForm = () => {
+    setEmail("");
+    setPassword("");
+    setName("");
+  };
+
   return (
     <div className="register">
       <Link to={"/"} className="register__logo">

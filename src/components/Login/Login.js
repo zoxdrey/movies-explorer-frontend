@@ -2,6 +2,7 @@ import "./Login.css";
 import logo from "../../images/logo.svg";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { login } from "../../utils/MainApi";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -17,8 +18,15 @@ const Login = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log({ email, password });
+    login({ email, password }).then(() => {
+      resetForm();
+    });
   }
+
+  const resetForm = () => {
+    setEmail("");
+    setPassword("");
+  };
 
   return (
     <div className="login">

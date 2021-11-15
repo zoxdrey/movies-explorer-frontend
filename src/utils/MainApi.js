@@ -1,9 +1,24 @@
+const url = "http://178.154.202.223/";
+
+const headers = {
+  "Content-Type": "application/json",
+  // 'Content-Type': 'application/x-www-form-urlencoded',
+};
+
 export function register(user) {
-  return fetch("/singup", { method: "POST" }).then((data) => data.json());
+  return fetch(`${url}signup`, {
+    method: "POST",
+    body: JSON.stringify(user),
+    headers: headers,
+  }).then((data) => data.json());
 }
 
 export function login(user) {
-  return fetch("/singin", { method: "POST" }).then((data) => data.json());
+  return fetch(`${url}signin`, {
+    method: "POST",
+    body: JSON.stringify(user),
+    headers: headers,
+  }).then((data) => data.json());
 }
 
 export function getUser() {

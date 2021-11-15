@@ -1,5 +1,14 @@
 import { BEATFILM_URL } from "./consts";
 
 export function getAllFilms() {
-  return fetch(BEATFILM_URL).then((data) => data.json());
+  return fetch(BEATFILM_URL).then((res) => {
+    _checkResponse(res);
+  });
+}
+
+function _checkResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Ошибка: ${res.status}`);
 }

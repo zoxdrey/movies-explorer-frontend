@@ -8,11 +8,22 @@ import Login from "../Login/Login";
 import Register from "../Register/Register";
 import { Route, Routes } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 function App() {
   const [currentUser, setCurrentUser] = useState();
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("currentUser")) {
+      setCurrentUser(localStorage.getItem("currentUser"));
+      setLoggedIn(true);
+    } else {
+      setCurrentUser({});
+      setLoggedIn(false);
+    }
+  }, []);
+
   return (
     <div className="app">
       <CurrentUserContext.Provider value={currentUser}>

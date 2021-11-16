@@ -1,32 +1,36 @@
 import "./Login.css";
 import logo from "../../images/logo.svg";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { login } from "../../utils/MainApi";
-
+import { useNavigate } from "react-router-dom";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation";
+import { useState } from "react";
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
-
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
-
+  const navigate = useNavigate();
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    resetForm,
+    fetchError,
+    setFetchError,
+  } = useFormWithValidation();
+  const [loginError, setLoginError] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
-    login({ email, password }).then(() => {
-      resetForm();
-    });
+    login(values)
+      .then((res) => {
+        localStorage.setItem("token", res.token);
+        resetForm();
+        navigate("../movies", { replace: true });
+      })
+      .catch((err) => {
+        if (err) {
+          setFetchError(JSON.parse(err).message);
+        }
+      });
   }
-
-  const resetForm = () => {
-    setEmail("");
-    setPassword("");
-  };
 
   return (
     <div className="login">
@@ -45,9 +49,10 @@ const Login = () => {
           className="login-form__input"
           name="email"
           required
-          value={email}
-          onChange={handleEmailChange}
+          value={values.email}
+          onChange={handleChange}
         ></input>
+        <span className="register-form__input-error">{errors.email}</span>
         <label htmlFor="password" className="login-form__label">
           Пароль
         </label>
@@ -57,14 +62,23 @@ const Login = () => {
           minLength="2"
           id="password"
           name="password"
+          type="password"
           required
-          value={password}
-          onChange={handlePasswordChange}
+          value={values.password}
+          onChange={handleChange}
         ></input>
-        <button aria-label="Login" className="login-form__button" type="submit">
+        <span className="register-form__input-error">{errors.password}</span>
+        <span className="register-form__input-error">{fetchError}</span>
+        <button
+          aria-label="Login"
+          className="login-form__button"
+          type="submit"
+          disabled={!isValid}
+        >
           Вход
         </button>
       </form>
+      <div>{fetchError}</div>
       <p className="login__text">
         Ещё не зарегистрированы?
         <Link to={"/signup"} className="login__link">

@@ -10,7 +10,7 @@ export function register(user) {
     body: JSON.stringify(user),
     headers: headers,
   }).then((res) => {
-    _checkResponse(res);
+    return _checkResponse(res);
   });
 }
 
@@ -20,37 +20,38 @@ export function login(user) {
     body: JSON.stringify(user),
     headers: headers,
   }).then((res) => {
-    _checkResponse(res);
+    console.log(res);
+    return _checkResponse(res);
   });
 }
 
 export function getUser() {
   return fetch("/users/me").then((res) => {
-    _checkResponse(res);
+    return _checkResponse(res);
   });
 }
 
 export function updateUser(user) {
   return fetch("/users/me", { method: "PATCH" }).then((res) => {
-    _checkResponse(res);
+    return _checkResponse(res);
   });
 }
 
 export function createMovie(movie) {
   return fetch("/movies").then((res) => {
-    _checkResponse(res);
+    return _checkResponse(res);
   });
 }
 
 export function getMovies(user) {
   return fetch("/movies").then((res) => {
-    _checkResponse(res);
+    return _checkResponse(res);
   });
 }
 
 export function deleteMovie(user) {
   return fetch("/movies").then((res) => {
-    _checkResponse(res);
+    return _checkResponse(res);
   });
 }
 
@@ -58,5 +59,7 @@ function _checkResponse(res) {
   if (res.ok) {
     return res.json();
   }
-  return Promise.reject(`Ошибка: ${res.status}`);
+  return res.text().then((text) => {
+    return Promise.reject(text || `Ошибка: ${res.status}`);
+  });
 }

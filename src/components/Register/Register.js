@@ -2,37 +2,42 @@ import "./Register.css";
 import logo from "../../images/logo.svg";
 import { Link } from "react-router-dom";
 import { register } from "../../utils/MainApi";
-import { useState } from "react";
+import { login } from "../../utils/MainApi";
+import { useNavigate } from "react-router-dom";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 
 const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
-
-  function handleNameChange(e) {
-    setName(e.target.value);
-  }
-
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
+  const navigate = useNavigate();
+  const {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    resetForm,
+    fetchError,
+    setFetchError,
+  } = useFormWithValidation();
 
   function handleSubmit(e) {
     e.preventDefault();
-    register({ email, name, password }).then(() => {
-      resetForm();
-    });
+    register(values)
+      .then((res) => {
+        if (res) {
+          localStorage.setItem("currentUser", JSON.stringify(res.data));
+          login({ email: res.data.email, password: values.password }).then(
+            (res) => {
+              localStorage.setItem("token", res.token);
+              navigate("../movies", { replace: true });
+            }
+          );
+        }
+      })
+      .catch((err) => {
+        if (err) {
+          setFetchError(JSON.parse(err).message);
+        }
+      });
   }
-
-  const resetForm = () => {
-    setEmail("");
-    setPassword("");
-    setName("");
-  };
 
   return (
     <div className="register">
@@ -51,9 +56,12 @@ const Register = () => {
           className="register-form__input"
           name="name"
           required
-          value={name}
-          onChange={handleNameChange}
+          value={values.name}
+          onChange={handleChange}
+          minLength="2"
+          maxLength="30"
         ></input>
+        <span className="register-form__input-error">{errors.name}</span>
         <label htmlFor="email" className="register-form__label">
           E-mail
         </label>
@@ -63,9 +71,10 @@ const Register = () => {
           className="register-form__input"
           name="email"
           required
-          value={email}
-          onChange={handleEmailChange}
+          value={values.email}
+          onChange={handleChange}
         ></input>
+        <span className="register-form__input-error">{errors.email}</span>
         <label htmlFor="password" className="register-form__label">
           Пароль
         </label>
@@ -75,14 +84,18 @@ const Register = () => {
           minLength="2"
           id="password"
           name="password"
+          type="password"
           required
-          value={password}
-          onChange={handlePasswordChange}
+          value={values.password}
+          onChange={handleChange}
         ></input>
+        <span className="register-form__input-error">{errors.password}</span>
+        <span className="register-form__input-error">{fetchError}</span>
         <button
           aria-label="register"
           className="register-form__button"
           type="submit"
+          disabled={!isValid}
         >
           Зарегистрироваться
         </button>

@@ -67,6 +67,7 @@
   text-align: center;
   border: none;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .register__text {
@@ -91,6 +92,25 @@
   line-height: 17px;
   text-align: center;
   color: #4285f4;
+}
+
+.register-form__button:disabled {
+  background-color: #424242;
+  cursor: not-allowed;
+}
+
+.register-form__input-error {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  margin-bottom: 10px;
+  color: #ee3465;
+}
+
+.register-form__input:invalid {
+  color: #ee3465;
 }
 
 @media screen and (max-width: 768px) {

@@ -1,12 +1,13 @@
-import React, { useCallback } from "./react";
+import React, { useCallback } from "react";
 
 //хук управления формой и валидации формы
 export function useFormWithValidation() {
   const [values, setValues] = React.useState({});
   const [errors, setErrors] = React.useState({});
   const [isValid, setIsValid] = React.useState(false);
-
+  const [fetchError, setFetchError] = React.useState("");
   const handleChange = (event) => {
+    setFetchError("");
     const target = event.target;
     const name = target.name;
     const value = target.value;
@@ -24,5 +25,13 @@ export function useFormWithValidation() {
     [setValues, setErrors, setIsValid]
   );
 
-  return { values, handleChange, errors, isValid, resetForm };
+  return {
+    values,
+    handleChange,
+    errors,
+    isValid,
+    resetForm,
+    fetchError,
+    setFetchError,
+  };
 }

@@ -5,6 +5,7 @@ import { login } from "../../utils/MainApi";
 import { useNavigate } from "react-router-dom";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import { useState } from "react";
+import { getUser } from "./../../utils/MainApi";
 const Login = () => {
   const navigate = useNavigate();
   const {
@@ -16,14 +17,17 @@ const Login = () => {
     fetchError,
     setFetchError,
   } = useFormWithValidation();
-  const [loginError, setLoginError] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
     login(values)
       .then((res) => {
         localStorage.setItem("token", res.token);
-        resetForm();
-        navigate("../movies", { replace: true });
+        getUser(res.token).then((res) => {
+          localStorage.setItem("currentUser", JSON.stringify(res));
+          resetForm();
+          navigate("../movies", { replace: true });
+        });
       })
       .catch((err) => {
         if (err) {

@@ -29,6 +29,16 @@
   color: #ffffff;
 }
 
+.movies-card-list_error {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #ffffff;
+  text-align: center;
+}
+
 @media screen and (max-width: 768px) {
   .movies-card-list {
     padding: 70px 30px 10px 30px;

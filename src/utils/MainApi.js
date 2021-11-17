@@ -25,32 +25,62 @@ export function login(user) {
   });
 }
 
-export function getUser() {
-  return fetch("/users/me").then((res) => {
+export function getUser(token) {
+  return fetch(`${url}users/me`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      ...headers,
+    },
+  }).then((res) => {
     return _checkResponse(res);
   });
 }
 
-export function updateUser(user) {
-  return fetch("/users/me", { method: "PATCH" }).then((res) => {
+export function updateUser(user, token) {
+  return fetch(`${url}users/me`, {
+    method: "PATCH",
+    body: JSON.stringify(user),
+    headers: {
+      Authorization: `Bearer ${token}`,
+      ...headers,
+    },
+  }).then((res) => {
     return _checkResponse(res);
   });
 }
 
-export function createMovie(movie) {
-  return fetch("/movies").then((res) => {
+export function createMovie(movie, token) {
+  return fetch(`${url}movies`, {
+    method: "POST",
+    body: JSON.stringify(movie),
+    headers: {
+      Authorization: `Bearer ${token}`,
+      ...headers,
+    },
+  }).then((res) => {
     return _checkResponse(res);
   });
 }
 
-export function getMovies(user) {
-  return fetch("/movies").then((res) => {
+export function getMovies(token) {
+  return fetch(`${url}movies`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+      ...headers,
+    },
+  }).then((res) => {
     return _checkResponse(res);
   });
 }
 
-export function deleteMovie(user) {
-  return fetch("/movies").then((res) => {
+export function deleteMovie(id, token) {
+  return fetch(`${url}movies/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      ...headers,
+    },
+  }).then((res) => {
     return _checkResponse(res);
   });
 }

@@ -37,6 +37,7 @@
 }
 
 .movies-card__like-button {
+  cursor: pointer;
   width: 14px;
   height: 12px;
   border: 0;
@@ -46,6 +47,7 @@
 }
 
 .movies-card__like-button_active {
+  cursor: pointer;
   width: 14px;
   height: 12px;
   border: 0;
@@ -55,6 +57,7 @@
 }
 
 .movies-card__delete-button {
+  cursor: pointer;
   width: 14px;
   height: 12px;
   border: 0;

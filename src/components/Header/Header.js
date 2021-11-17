@@ -4,9 +4,11 @@ import accountIcon from "../../images/account_icon.svg";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Menu from "../Menu/Menu";
-const Header = (props) => {
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+const Header = () => {
   const [menuToggle, setMenuToggle] = useState(false);
-
+  const currentUser = useContext(CurrentUserContext);
   const toggleMenu = () => {
     setMenuToggle(!menuToggle);
     console.log(menuToggle);
@@ -14,11 +16,11 @@ const Header = (props) => {
 
   return (
     <>
-      <div className={`header ${props.showAuthNav ? "" : "header_no-auth"}`}>
+      <div className={`header ${!currentUser.name ? "" : "header_no-auth"}`}>
         <Link to={"/"} className="header__logo">
           <img src={logo} alt="Логотип" />
         </Link>
-        {props.showAuthNav ? (
+        {!currentUser.name ? (
           <nav className="header-auth__nav-bar">
             <a href="/signup" className="header-auth__nav-bar-item">
               Регистрация

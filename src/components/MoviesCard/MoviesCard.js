@@ -1,14 +1,46 @@
 import "./MoviesCard.css";
 import { FILM_POSTER_URL } from "../../utils/consts";
-const MoviesCard = ({ iconType, film }) => {
+const MoviesCard = ({
+  iconType,
+  film,
+  onLikeClick,
+  onDislikeClick,
+  onDeleteClick,
+}) => {
+  function onLikeClickHandler() {
+    onLikeClick(film);
+  }
+
+  function onDislikeClickHandler() {
+    onDislikeClick(film);
+  }
+
+  function onDeleteClickHandler() {
+    onDeleteClick(film);
+  }
   const getIconType = (iconType) => {
     switch (iconType) {
       case 1:
-        return <button className="movies-card__like-button"></button>;
+        return (
+          <button
+            className="movies-card__like-button"
+            onClick={onLikeClickHandler}
+          ></button>
+        );
       case 2:
-        return <button className="movies-card__like-button_active"></button>;
+        return (
+          <button
+            className="movies-card__like-button_active"
+            onClick={onDislikeClickHandler}
+          ></button>
+        );
       case 3:
-        return <button className="movies-card__delete-button"></button>;
+        return (
+          <button
+            className="movies-card__delete-button"
+            onClick={onDeleteClickHandler}
+          ></button>
+        );
       default:
         return <button className="movies-card__like-button"></button>;
     }
@@ -20,6 +52,10 @@ const MoviesCard = ({ iconType, film }) => {
     const minutes = (hours - rhours) * 60;
     const rminutes = Math.round(minutes);
     return `${rhours}ч ${rminutes}м`;
+  };
+
+  const getCardImageUrl = () => {
+    return (film.image.url && FILM_POSTER_URL + film.image.url) || film.image;
   };
 
   return (
@@ -36,7 +72,7 @@ const MoviesCard = ({ iconType, film }) => {
       <div className="movies-card__image-wrapper">
         <img
           className="movies-card__image"
-          src={FILM_POSTER_URL + film.image.url}
+          src={getCardImageUrl()}
           alt="постер"
         />
       </div>

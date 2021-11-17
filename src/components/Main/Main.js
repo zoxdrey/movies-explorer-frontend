@@ -11,7 +11,7 @@ const Main = () => {
   return (
     <>
       <main className="content">
-        <Header showAuthNav={true} />
+        <Header />
         <Promo />
         <AboutProject />
         <Techs />

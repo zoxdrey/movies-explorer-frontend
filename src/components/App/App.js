@@ -6,23 +6,30 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 import Profile from "../Profile/Profile";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useEffect, useState } from "react";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 function App() {
-  const [currentUser, setCurrentUser] = useState();
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({});
+
+  const [loggedIn, setLoggedIn] = useState();
+  const navigate = useNavigate();
+  let location = useLocation();
 
   useEffect(() => {
-    if (localStorage.getItem("currentUser")) {
-      setCurrentUser(localStorage.getItem("currentUser"));
+    const path = location.pathname;
+    const user = JSON.parse(localStorage.getItem("currentUser"));
+    const token = localStorage.getItem("token");
+    if (user && token) {
+      setCurrentUser(user);
       setLoggedIn(true);
+      navigate(path);
     } else {
       setCurrentUser({});
       setLoggedIn(false);
     }
-  }, []);
+  }, [setCurrentUser, location.pathname, navigate]);
 
   return (
     <div className="app">
@@ -44,7 +51,7 @@ function App() {
             path="/profile"
             element={
               <ProtectedRoute loggedIn={loggedIn}>
-                <Profile />
+                <Profile setCurrentUser={setCurrentUser} />
               </ProtectedRoute>
             }
           />{" "}

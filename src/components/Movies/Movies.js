@@ -49,15 +49,6 @@ const Movies = () => {
     }
   }, [token]);
 
-  useEffect(() => {
-    console.log(filmsListFiltered);
-    setFilmsListFiltered(
-      filmsList.filter((item) => {
-        return item.nameRU.indexOf(query) + 1;
-      })
-    );
-  }, [query, filmsList, filmsListFiltered]);
-
   function getAllMovies(value) {
     if (localStorage.getItem("filmList")) {
       const films = JSON.parse(localStorage.getItem("filmList"));

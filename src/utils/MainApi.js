@@ -1,4 +1,4 @@
-const url = "http://api.zoxdrey.mesto.nomoredomains.club/";
+const url = "https://api.zoxdrey.mesto.nomoredomains.club/";
 
 const headers = {
   "Content-Type": "application/json",

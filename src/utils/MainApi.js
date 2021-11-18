@@ -1,4 +1,4 @@
-const url = "http://178.154.202.223/";
+const url = "http://api.zoxdrey.mesto.nomoredomains.club/";
 
 const headers = {
   "Content-Type": "application/json",

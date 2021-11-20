@@ -62,8 +62,8 @@ const MoviesCard = ({
   };
 
   const handleCardClick = (e) => {
-    if (e.target.className.includes("like-button")) return;
-    window.open(film.trailerLink);
+    if (e.target.className.includes("button")) return;
+    window.open(film.trailerLink || film.trailer);
   };
 
   return (

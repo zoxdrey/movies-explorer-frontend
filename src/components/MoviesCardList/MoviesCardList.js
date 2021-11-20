@@ -9,6 +9,7 @@ const MoviesCardList = ({
   onCardButtonClick,
   isSaved,
   savedMovies,
+  setSavedMovies,
   ...props
 }) => {
   function handleClick() {
@@ -30,7 +31,7 @@ const MoviesCardList = ({
       movieId: film.id,
     };
     createMovie(filmToCreate, localStorage.getItem("token"))
-      .then((res) => console.log(res))
+      .then((res) => setSavedMovies([...savedMovies, res.movie]))
       .catch((err) => {
         console.log(err);
       });

@@ -119,6 +119,16 @@
   height: 53px;
 }
 
+.seacrh-form_errors {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  margin-bottom: 10px;
+  color: #ee3465;
+}
+
 @media screen and (max-width: 768px) {
   .search-form-wrapper {
     padding: 70px 30px 0 30px;

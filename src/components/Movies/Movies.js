@@ -109,6 +109,7 @@ const Movies = () => {
         <Preloader />
       ) : (
         <MoviesCardList
+          setSavedMovies={setSavedMovies}
           onCardButtonClick={onCardButtonClick}
           filmsList={filmsListFiltered}
           savedMovies={savedMovies}

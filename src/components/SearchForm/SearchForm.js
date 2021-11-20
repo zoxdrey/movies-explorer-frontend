@@ -1,20 +1,24 @@
 import "./SearchForm.css";
 import searchIcon from "../../images/search-icon.svg";
+import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import { useState } from "react";
-const SearchForm = ({
-  isButtonDisabled,
-  handleSubmit,
-  handleCheckboxChange,
-}) => {
-  const [searchQuery, setSearchQuery] = useState("");
+const SearchForm = ({ handleSubmit, handleCheckboxChange }) => {
+  const { values, handleChange, errors, isValid } = useFormWithValidation();
+  const [serachError, setSearchError] = useState("");
+  function handleSearchChange(e) {
+    if (serachError) {
+      setSearchError("");
+    }
+    handleChange(e);
+  }
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    handleSubmit(searchQuery);
-  }
-
-  function handleSearchQueryChange(e) {
-    setSearchQuery(e.target.value);
+    if (!values.search) {
+      setSearchError("Нужно ввести ключевое слово");
+      return;
+    }
+    handleSubmit(values.search);
   }
 
   return (
@@ -31,19 +35,19 @@ const SearchForm = ({
             alt="иконка поиска"
           />
           <input
+            type="text"
             className="search-form__input"
             id="search"
             name="search"
             placeholder="Фильм"
-            required
-            value={searchQuery}
-            onChange={handleSearchQueryChange}
+            value={values.search}
+            onChange={handleSearchChange}
+            novalidate
           />
           <button
             aria-label="Save"
             className="search-form__button"
             type="submit"
-            disabled={isButtonDisabled}
           >
             Найти
           </button>
@@ -65,6 +69,7 @@ const SearchForm = ({
           </label>
         </div>
       </form>
+      <div className="seacrh-form_errors">{serachError}</div>
       <div className="search-form-wrapper__devider"></div>
     </div>
   );

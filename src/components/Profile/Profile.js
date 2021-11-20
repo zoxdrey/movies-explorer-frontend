@@ -5,8 +5,11 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useNavigate } from "react-router-dom";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import { updateUser } from "../../utils/MainApi";
+import { useEffect } from "react/cjs/react.development";
+import { useState } from "react";
 const Profile = ({ setCurrentUser }) => {
   const currentUser = useContext(CurrentUserContext);
+  const [dataChanged, setDataChanged] = useState(false);
   const navigate = useNavigate();
   function handleExitLinkClick() {
     localStorage.removeItem("token");
@@ -14,6 +17,10 @@ const Profile = ({ setCurrentUser }) => {
     localStorage.removeItem("filmList");
     navigate("../");
   }
+
+  useEffect(() => {
+    setValues({ name: currentUser.name, email: currentUser.email });
+  }, []);
 
   const {
     values,
@@ -23,6 +30,7 @@ const Profile = ({ setCurrentUser }) => {
     resetForm,
     fetchError,
     setFetchError,
+    setValues,
   } = useFormWithValidation();
 
   function handleSubmit(e) {
@@ -41,6 +49,18 @@ const Profile = ({ setCurrentUser }) => {
       });
   }
 
+  function handleProfileChange(e) {
+    handleChange(e);
+    if (
+      values.email === currentUser.email &&
+      values.name === currentUser.name
+    ) {
+      setDataChanged(false);
+    } else {
+      setDataChanged(true);
+    }
+  }
+
   return (
     <div className="profile__container">
       <Header showAuthNav={false} />
@@ -57,10 +77,9 @@ const Profile = ({ setCurrentUser }) => {
                 name="name"
                 required
                 value={values.name}
-                onChange={handleChange}
+                onChange={handleProfileChange}
                 minLength="2"
                 maxLength="30"
-                placeholder={currentUser.name}
               ></input>
             </div>
             <span className="profile__info-error">{errors.name}</span>
@@ -76,10 +95,9 @@ const Profile = ({ setCurrentUser }) => {
                 name="email"
                 required
                 value={values.email}
-                onChange={handleChange}
+                onChange={handleProfileChange}
                 minLength="2"
                 maxLength="30"
-                placeholder={currentUser.email}
               ></input>
             </div>
             <span className="profile__info-error">{errors.email}</span>
@@ -89,7 +107,7 @@ const Profile = ({ setCurrentUser }) => {
             className={`profile__info-button ${
               isValid && `profile__info-button_active`
             }`}
-            disabled={!isValid}
+            disabled={dataChanged && !isValid}
           >
             Редактировать
           </button>

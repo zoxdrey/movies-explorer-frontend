@@ -1,7 +1,11 @@
 import "./SearchForm.css";
 import searchIcon from "../../images/search-icon.svg";
 import { useState } from "react";
-const SearchForm = ({ isButtonDisabled, handleSubmit }) => {
+const SearchForm = ({
+  isButtonDisabled,
+  handleSubmit,
+  handleCheckboxChange,
+}) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   function handleFormSubmit(e) {
@@ -51,6 +55,7 @@ const SearchForm = ({ isButtonDisabled, handleSubmit }) => {
             id="short-film"
             name="short-film"
             type="checkbox"
+            onClick={handleCheckboxChange}
           />
           <label
             htmlFor="short-film"

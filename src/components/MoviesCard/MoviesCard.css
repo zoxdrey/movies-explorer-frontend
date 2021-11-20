@@ -1,6 +1,6 @@
 .movies-card {
   background-color: #2f2f2f;
-
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   padding: 6px;

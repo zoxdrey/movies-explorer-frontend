@@ -5,8 +5,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useNavigate } from "react-router-dom";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import { updateUser } from "../../utils/MainApi";
-import { useEffect } from "react/cjs/react.development";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const Profile = ({ setCurrentUser }) => {
   const currentUser = useContext(CurrentUserContext);
   const [dataChanged, setDataChanged] = useState(false);

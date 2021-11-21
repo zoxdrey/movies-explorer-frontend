@@ -5,7 +5,7 @@ import { register } from "../../utils/MainApi";
 import { login } from "../../utils/MainApi";
 import { useNavigate } from "react-router-dom";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
-import { useEffect } from "react/cjs/react.development";
+import { useEffect } from "react";
 
 const Register = () => {
   const {
@@ -17,10 +17,9 @@ const Register = () => {
     fetchError,
     setFetchError,
   } = useFormWithValidation();
-
+  const token = localStorage.getItem("token");
   const navigate = useNavigate();
   useEffect(() => {
-    const token = localStorage.getItem("token");
     if (token) {
       navigate("./");
     }

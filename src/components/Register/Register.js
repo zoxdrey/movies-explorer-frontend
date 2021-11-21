@@ -20,11 +20,6 @@ const Register = () => {
 
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
-  useEffect(() => {
-    if (token) {
-      navigate("./");
-    }
-  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();

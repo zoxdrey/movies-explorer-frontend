@@ -24,7 +24,7 @@ const Register = () => {
     if (token) {
       navigate("./");
     }
-  });
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();

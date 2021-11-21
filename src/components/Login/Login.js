@@ -23,7 +23,7 @@ const Login = () => {
     if (token) {
       navigate("./");
     }
-  });
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();

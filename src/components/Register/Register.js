@@ -18,8 +18,13 @@ const Register = () => {
     setFetchError,
   } = useFormWithValidation();
 
-  const token = localStorage.getItem("token");
   const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("./");
+    }
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();

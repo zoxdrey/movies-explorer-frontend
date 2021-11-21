@@ -22,7 +22,7 @@ const Register = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (token) {
-      navigate("/");
+      navigate("./");
     }
   });
 

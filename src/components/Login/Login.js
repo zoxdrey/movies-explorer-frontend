@@ -21,7 +21,7 @@ const Login = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (token) {
-      navigate("/");
+      navigate("./");
     }
   });
 

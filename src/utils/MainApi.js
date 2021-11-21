@@ -20,7 +20,6 @@ export function login(user) {
     body: JSON.stringify(user),
     headers: headers,
   }).then((res) => {
-    console.log(res);
     return _checkResponse(res);
   });
 }

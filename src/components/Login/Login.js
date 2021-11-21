@@ -4,10 +4,9 @@ import { Link } from "react-router-dom";
 import { login } from "../../utils/MainApi";
 import { useNavigate } from "react-router-dom";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getUser } from "./../../utils/MainApi";
 const Login = () => {
-  const navigate = useNavigate();
   const {
     values,
     handleChange,
@@ -17,6 +16,14 @@ const Login = () => {
     fetchError,
     setFetchError,
   } = useFormWithValidation();
+
+  const token = localStorage.getItem("token");
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  });
 
   function handleSubmit(e) {
     e.preventDefault();

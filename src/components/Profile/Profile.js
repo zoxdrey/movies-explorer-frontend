@@ -10,6 +10,7 @@ import { useState } from "react";
 const Profile = ({ setCurrentUser }) => {
   const currentUser = useContext(CurrentUserContext);
   const [dataChanged, setDataChanged] = useState(false);
+  const [message, setMessage] = useState("");
   const navigate = useNavigate();
   function handleExitLinkClick() {
     localStorage.removeItem("token");
@@ -40,6 +41,8 @@ const Profile = ({ setCurrentUser }) => {
         if (res) {
           setCurrentUser(res);
           localStorage.setItem("currentUser", JSON.stringify(res));
+          setMessage("Сохранено");
+          setDataChanged(true);
         }
       })
       .catch((err) => {
@@ -50,6 +53,9 @@ const Profile = ({ setCurrentUser }) => {
   }
 
   function handleProfileChange(e) {
+    if (message) {
+      setMessage("");
+    }
     handleChange(e);
     if (
       values.email === currentUser.email &&
@@ -102,12 +108,13 @@ const Profile = ({ setCurrentUser }) => {
             </div>
             <span className="profile__info-error">{errors.email}</span>
             <span className="profile__info-error">{fetchError}</span>
+            <span className="profile__info-message">{message}</span>
           </div>
           <button
             className={`profile__info-button ${
-              isValid && `profile__info-button_active`
+              isValid && !dataChanged && `profile__info-button_active`
             }`}
-            disabled={dataChanged && !isValid}
+            disabled={dataChanged || !isValid}
           >
             Редактировать
           </button>

@@ -11,7 +11,6 @@ const Header = () => {
   const currentUser = useContext(CurrentUserContext);
   const toggleMenu = () => {
     setMenuToggle(!menuToggle);
-    console.log(menuToggle);
   };
 
   return (

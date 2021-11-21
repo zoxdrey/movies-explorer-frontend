@@ -5,7 +5,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import { useEffect, useState } from "react";
 import { getMovies } from "../../utils/MainApi";
 import { deleteMovie } from "./../../utils/MainApi";
-import { shortFilmDuration } from "../../utils/consts";
+import { shortFilmDuration, chunkSizeDefault } from "../../utils/consts";
 import Preloader from "./../Preloader/Preloader";
 const SavedMovies = () => {
   const [filmsList, setFilmList] = useState([]);
@@ -13,6 +13,7 @@ const SavedMovies = () => {
   const token = localStorage.getItem("token");
   const [isLoaderShow, setIsLoaderShow] = useState(false);
   const [isShortFilmSearch, setIsShortFilmSearch] = useState(false);
+  const [chunkSize, setChunkSize] = useState(chunkSizeDefault);
   useEffect(() => {
     setIsLoaderShow(true);
     if (token) {
@@ -42,7 +43,6 @@ const SavedMovies = () => {
       })
       .catch((err) => {
         setIsLoaderShow(false);
-        console.log(err);
       });
     setIsLoaderShow(false);
   }
@@ -67,6 +67,10 @@ const SavedMovies = () => {
     return result;
   }
 
+  function handleMoreClick() {
+    setChunkSize(chunkSize + chunkSizeDefault);
+  }
+
   return (
     <div className="saved-movies">
       <Header />
@@ -81,6 +85,8 @@ const SavedMovies = () => {
           filmsList={filmsListFiltered}
           onCardButtonClick={onCardButtonClick}
           isSaved={true}
+          handleMoreClick={handleMoreClick}
+          chunkSize={chunkSize}
         />
       )}
       <Footer />

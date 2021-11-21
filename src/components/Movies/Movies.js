@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 import { getMovies } from "../../utils/MainApi";
 import { deleteMovie } from "./../../utils/MainApi";
 import Preloader from "./../Preloader/Preloader";
-import { shortFilmDuration } from "../../utils/consts";
+import { chunkSizeDefault, shortFilmDuration } from "../../utils/consts";
 const Movies = () => {
   const [filmsList, setFilmsList] = useState([]);
   const [filmsListFiltered, setFilmsListFiltered] = useState([]);
@@ -15,8 +15,9 @@ const Movies = () => {
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoaderShow, setIsLoaderShow] = useState(false);
   const [isShortFilmSearch, setIsShortFilmSearch] = useState(false);
+  const [searched, setSearched] = useState(false);
+  const [chunkSize, setChunkSize] = useState(chunkSizeDefault);
   const token = localStorage.getItem("token");
-
   const handleSearchSubmit = (value) => {
     setIsLoaderShow(true);
     if (filmsList.length !== 0 && value) {
@@ -57,9 +58,7 @@ const Movies = () => {
           setSavedMovies(data);
         });
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
   }
 
   useEffect(() => {
@@ -90,10 +89,13 @@ const Movies = () => {
         setIsLoaderShow(false);
       })
       .catch((err) => {
-        console.log(err);
         setIsLoaderShow(false);
       });
     hideLoaderWithDelay(false);
+  }
+
+  function handleMoreClick() {
+    setChunkSize(chunkSize + chunkSizeDefault);
   }
 
   return (
@@ -104,6 +106,7 @@ const Movies = () => {
         isButtonDisabled={isButtonDisabled}
         handleSubmit={handleSearchSubmit}
         handleCheckboxChange={handleCheckboxChange}
+        setSearched={setSearched}
       />
       {isLoaderShow ? (
         <Preloader />
@@ -113,6 +116,9 @@ const Movies = () => {
           onCardButtonClick={onCardButtonClick}
           filmsList={filmsListFiltered}
           savedMovies={savedMovies}
+          searched={searched}
+          handleMoreClick={handleMoreClick}
+          chunkSize={chunkSize}
         />
       )}
       <Footer />

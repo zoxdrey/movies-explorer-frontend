@@ -2,7 +2,7 @@ import "./SearchForm.css";
 import searchIcon from "../../images/search-icon.svg";
 import { useFormWithValidation } from "../../hooks/useFormWithValidation";
 import { useState } from "react";
-const SearchForm = ({ handleSubmit, handleCheckboxChange }) => {
+const SearchForm = ({ handleSubmit, handleCheckboxChange, setSearched }) => {
   const { values, handleChange, errors, isValid } = useFormWithValidation();
   const [serachError, setSearchError] = useState("");
   function handleSearchChange(e) {
@@ -14,6 +14,9 @@ const SearchForm = ({ handleSubmit, handleCheckboxChange }) => {
 
   function handleFormSubmit(e) {
     e.preventDefault();
+    if (setSearched) {
+      setSearched(true);
+    }
     if (!values.search) {
       setSearchError("Нужно ввести ключевое слово");
       return;
@@ -42,7 +45,7 @@ const SearchForm = ({ handleSubmit, handleCheckboxChange }) => {
             placeholder="Фильм"
             value={values.search}
             onChange={handleSearchChange}
-            novalidate
+            noValidate
           />
           <button
             aria-label="Save"

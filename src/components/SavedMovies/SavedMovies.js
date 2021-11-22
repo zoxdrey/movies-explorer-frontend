@@ -11,6 +11,7 @@ const SavedMovies = () => {
   const [filmsList, setFilmList] = useState([]);
   const [filmsListFiltered, setFilmsListFiltered] = useState([]);
   const token = localStorage.getItem("token");
+  const [searched, setSearched] = useState(false);
   const [isLoaderShow, setIsLoaderShow] = useState(false);
   const [isShortFilmSearch, setIsShortFilmSearch] = useState(false);
   const [chunkSize, setChunkSize] = useState(chunkSizeDefault);
@@ -67,6 +68,10 @@ const SavedMovies = () => {
     return result;
   }
 
+  const handleCheckboxChange = () => {
+    setIsShortFilmSearch(!isShortFilmSearch);
+  };
+
   function handleMoreClick() {
     setChunkSize(chunkSize + chunkSizeDefault);
   }
@@ -76,7 +81,8 @@ const SavedMovies = () => {
       <Header />
       <SearchForm
         handleSubmit={handleSearchSubmit}
-        setIsShortFilmSearch={setIsShortFilmSearch}
+        handleCheckboxChange={handleCheckboxChange}
+        setSearched={setSearched}
       />
       {isLoaderShow ? (
         <Preloader />
@@ -87,6 +93,7 @@ const SavedMovies = () => {
           isSaved={true}
           handleMoreClick={handleMoreClick}
           chunkSize={chunkSize}
+          searched={searched}
         />
       )}
       <Footer />

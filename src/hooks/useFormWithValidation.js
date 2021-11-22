@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { emailRegEx } from "../utils/consts";
+import isEmail from "validator/lib/isEmail";
 //хук управления формой и валидации формы
 export function useFormWithValidation() {
   const [values, setValues] = React.useState({});
@@ -11,9 +11,14 @@ export function useFormWithValidation() {
     const target = event.target;
     const name = target.name;
     const value = target.value;
+    if (name === "email" && !isEmail(value)) {
+      setErrors({ ...errors, [name]: "Неверный шаблон email" });
+    } else {
+      setErrors({ ...errors, [name]: target.validationMessage });
+    }
     setValues({ ...values, [name]: value });
-    setErrors({ ...errors, [name]: target.validationMessage });
-    setIsValid(target.closest("form").checkValidity());
+
+    setIsValid(target.closest("form").checkValidity() && isEmail(value));
   };
 
   const resetForm = useCallback(

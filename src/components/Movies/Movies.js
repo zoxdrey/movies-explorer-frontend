@@ -11,7 +11,6 @@ import { chunkSizeDefault, shortFilmDuration } from "../../utils/consts";
 const Movies = () => {
   const [filmsList, setFilmsList] = useState([]);
   const [filmsListFiltered, setFilmsListFiltered] = useState([]);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [savedMovies, setSavedMovies] = useState([]);
   const [isLoaderShow, setIsLoaderShow] = useState(false);
   const [isShortFilmSearch, setIsShortFilmSearch] = useState(false);
@@ -103,7 +102,6 @@ const Movies = () => {
       <Header />
 
       <SearchForm
-        isButtonDisabled={isButtonDisabled}
         handleSubmit={handleSearchSubmit}
         handleCheckboxChange={handleCheckboxChange}
         setSearched={setSearched}
